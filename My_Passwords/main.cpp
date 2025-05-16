@@ -2,6 +2,6 @@
 
 int main() {
     AppController app;
-    app.run();  // 전체 흐름 시작
+    app.run();
     return 0;
 }

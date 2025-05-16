@@ -41,11 +41,14 @@ void AppController::run() {
             choice = 0;
             cout << "1. Add Password\n2. Display Password\n3. Search Password\n4. Edit Password\nSelect: ";
             cin >> choice;
-
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+                continue;
+            }
             switch (choice) {
             case 1:
                 password.insertPassword(db.getDB(), session);
-                system("pause");
             }
         }
     }
