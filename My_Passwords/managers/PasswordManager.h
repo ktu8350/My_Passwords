@@ -8,6 +8,14 @@
 
 class PasswordManager {
 public:
+    struct Password {
+        int id;
+        std::string username;
+        std::string site;
+        std::string site_id;
+        std::string site_pw;
+        std::string description;
+    };
     struct PasswordInput {
         std::string site;
         std::string site_id;
@@ -16,8 +24,13 @@ public:
         std::string description;
     };
 
+
     bool insertPassword(sqlite3* db, SessionManager& session);
     bool isDuplicate(sqlite3* db, SessionManager& session, const std::string& site, const std::string& site_id);
+    bool loadPassword(sqlite3* db, SessionManager& session);
+    void displayPassword();
+private:
+    std::vector<Password> passwords;
 };
 
 #endif

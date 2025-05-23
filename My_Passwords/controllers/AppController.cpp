@@ -24,6 +24,12 @@ void AppController::run() {
         if (choice == 1) {
             if (session.loginUser(db.getDB())) {
                 cout << "User: " << session.getUsername() << " logged in.\n";
+                if (password.loadPassword(db.getDB(), session)) {
+                    cout << "Passwords loaded successfully!\n";
+                }
+                else {
+                    cerr << "Failed to load passwords.\n";
+                }
             }
         }
         else if (choice == 2) {
@@ -49,6 +55,10 @@ void AppController::run() {
             switch (choice) {
             case 1:
                 password.insertPassword(db.getDB(), session);
+                break;
+            case 2:
+                password.displayPassword();
+                break;
             }
         }
     }
