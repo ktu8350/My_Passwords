@@ -59,6 +59,8 @@ void AppController::run() {
             case 2:
                 password.displayPassword();
                 break;
+            case 3:
+                password.searchPassword();
             }
         }
     }

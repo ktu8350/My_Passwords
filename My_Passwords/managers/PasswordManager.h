@@ -29,6 +29,7 @@ public:
     bool isDuplicate(sqlite3* db, SessionManager& session, const std::string& site, const std::string& site_id);
     bool loadPassword(sqlite3* db, SessionManager& session);
     void displayPassword();
+    void searchPassword();
 private:
     std::vector<Password> passwords;
 };

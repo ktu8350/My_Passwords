@@ -134,3 +134,32 @@ void PasswordManager::displayPassword() {
     system("pause");
     system("cls");
 }
+
+void PasswordManager::searchPassword() {
+    string keyword;
+    bool found = false;
+    system("cls");
+    cout << "Please enter a keyword to search\nEnter: ";
+    getline(cin >> ws, keyword);
+    cout << "Input" << keyword;
+    for (const auto& p : passwords) {
+        if (p.site.find(keyword) != std::string::npos ||
+            p.site_id.find(keyword) != std::string::npos ||
+            p.description.find(keyword) != std::string::npos) {
+            cout << "ID: " << p.id << endl;
+            cout << "Site: " << p.site << endl;
+            cout << "Site ID: " << p.site_id << endl;
+            cout << "Site Password: " << p.site_pw << endl;
+            cout << "Description: " << p.description << endl;
+            cout << "---------------------------" << endl;
+            found = true;
+        }
+    }
+
+    if (found == false) {
+        cout << "No matching result found!" << endl;
+    }
+
+    system("pause");
+    system("cls");
+}
