@@ -61,6 +61,13 @@ void AppController::run() {
                 break;
             case 3:
                 password.searchPassword();
+                break;
+            case 4:
+                password.editPassword(db.getDB(), session);
+                break;
+            default:
+                cout << "Invalid Input" << endl;
+                break;
             }
         }
     }

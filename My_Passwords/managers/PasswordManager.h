@@ -30,6 +30,7 @@ public:
     bool loadPassword(sqlite3* db, SessionManager& session);
     void displayPassword();
     void searchPassword();
+    void editPassword(sqlite3* db, SessionManager& session);
 private:
     std::vector<Password> passwords;
 };
